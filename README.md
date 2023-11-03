@@ -14,8 +14,7 @@ A seguir, você encontrará instruções para instalar e configurar o projeto de
 1. Clone o repositório do Front-End:
 
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repo-frontend.git
-
+   git clone https://github.com/LaiFrance/Cadastro-de-Clientes-Front-end.git
    ```
 
    ## Funcionalidades
