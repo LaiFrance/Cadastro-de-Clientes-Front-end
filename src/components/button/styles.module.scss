@@ -1,17 +1,36 @@
 .button{
-    background-color: #fff;
-    border: 1px solid #000;
-    border-radius: 4px;
-    color: #000;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 8px 16px;
-    text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
-    
-    &:hover{
-        background-color: #000000;
-        color: #fff;
+    max-width: 600px;
+    background-color: var(--red-900);
+    border:0;
+    padding: 0.4rem;
+    color: var(--white);
+    border-radius: 0.5rem;
+    transition: filter 0.2s;
+    margin-top: 20px;
+    margin-bottom:20px;
+  
+    &[disabled]{
+      cursor: not-allowed;
+      svg{
+        animation: animate 2s infinite;
+      }
     }
-}
+  
+    &:hover{
+      filter: brightness(1.08)
+    }
+  
+  }
+  
+  .buttonText{
+    color: var(--white);
+  }
+  
+  @keyframes animate{
+    from{
+      transform: rotate(0deg);
+    }
+    to{
+      transform: rotate(360deg);
+    }
+  }
