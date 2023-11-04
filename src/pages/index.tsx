@@ -1,13 +1,13 @@
-import { useContext, FormEvent, useState} from 'react'
+import { useContext, FormEvent, useState } from 'react'
 
 import Head from 'next/head'
 import Image from 'next/image';
-import styles from '../styles/Home.module.scss'
+import styles from '../styles/Home.module.scss';
 
-import logo from '../../public/logo.jpeg'
+import logo from '../../public/logo.jpeg';
 
-import { Input } from '../components/input';
-import { Button } from '../components/button';
+import { Input } from '../components/input/index';
+import { Button } from '../components/button/index';
 
 import { AuthContext } from '../contexts/AuthContext'
 
@@ -17,16 +17,14 @@ export default function Home() {
   const { signIn } = useContext(AuthContext)
 
   const [email, setEmail] = useState('')
-  const [senha, setSenha] = useState('')
+  const [senha, setPassword] = useState('');
 
-  const [loading, setLoading]= useState(false)
-
-
+  const [loading, setLoading] = useState(false);
 
   async function handleLogin(event: FormEvent){
     event.preventDefault();
 
-    const data = {
+    let data = {
       email,
       senha
     }
@@ -34,16 +32,10 @@ export default function Home() {
     await signIn(data)
   }
 
-  
-
-
-
-         
-
   return (
     <>
     <Head>
-      <title> Faça seu login</title> 
+      <title>Faça seu login</title> 
     </Head>
     <div className={styles.containerCenter}>
       <Image src={logo} alt="Logo" width={300} height={300} />
@@ -54,13 +46,14 @@ export default function Home() {
             placeholder="Digite seu email"
             type="text"
             value={email}
+            onChange={ (e) => setEmail(e.target.value) }
           />
 
           <Input
             placeholder="Sua senha"
             type="password"
             value={senha}
-            
+            onChange={ (e) => setPassword(e.target.value) }
           />
           
           <Button
